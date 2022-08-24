@@ -10,9 +10,6 @@ jobs:
       - uses: actions/checkout@master
       
       - name: Merge develop -> main
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: develop
-          target_branch: main
-          github_token: ${{secrets.SECRET_TOKEN}}
+        run: |
+          git checkout main
+          git merge develop
