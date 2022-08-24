@@ -1,14 +1,19 @@
-name: Sync pushed develop branch to main
+name: Merge Branch dev to main
 on:
   push:
     branches:
       - develop
 jobs:
-  sync-branch:
+  merge-branch-dev-to-main:
+    name: Merge the develop branch into main
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Merge develop -> main
-        run: |
-          git checkout main
-          git merge develop
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: merge
+        uses: roujiawang/action-automerge@v1
+        id: merge
+        with:
+          github_token: ${{secrets.SECRET_TOKEN}}
+          source: 'develop'
+          target: 'main'
