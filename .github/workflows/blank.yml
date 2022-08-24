@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          ref: 'develop'
       - name: merge
         uses: roujiawang/action-automerge@v1
         id: merge
