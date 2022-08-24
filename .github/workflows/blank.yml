@@ -2,7 +2,7 @@ name: Sync pushed develop branch to main
 on:
   push:
     branches:
-      - 'develop'
+      - develop
 jobs:
   sync-branch:
     runs-on: ubuntu-latest
