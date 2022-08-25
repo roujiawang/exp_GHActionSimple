@@ -3,10 +3,17 @@ on:
   push:
     branches:
       - develop
+permissions:
+  contents: write
+  issues: write
 jobs:
   merge-branch-dev-to-main:
     name: Merge the develop branch into main
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{secrets.SECRET_TOKEN}}
+      REPORT_AUTHOR: mergebot
+      REPORT_LABEL: merge dev branch to main
     steps:
       - name: checkout
         uses: actions/checkout@v2
