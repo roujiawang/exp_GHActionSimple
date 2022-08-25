@@ -16,13 +16,12 @@ jobs:
       REPORT_LABEL: merge dev branch to main
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          ref: 'develop'
+          ref: 'main'
       - name: merge
         uses: roujiawang/action-automerge@v1
         id: merge
         with:
-          github_token: ${{secrets.SECRET_TOKEN}}
           source: 'develop'
           target: 'main'
