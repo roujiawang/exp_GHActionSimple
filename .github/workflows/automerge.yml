@@ -1,4 +1,8 @@
 name: merge dev to main
+env:
+  USER_NAME: roujiawang
+  USER_EMAIL: rjwang@umich.edu
+  PUSH_TOKEN: ${{secrets.SECRET_TOKEN}}
 on:
   push:
     branch:
@@ -14,6 +18,6 @@ jobs:
         with:
           from_branch: develop
           to_branch: main
-          user_name: roujiawang
-          user_email: rjwang@umich.edu
-          push_token: ${{secrets.SECRET_TOKEN}}
+          user_name: USER_NAME
+          user_email: USER_EMAIL
+          push_token: PUSH_TOKEN
