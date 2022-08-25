@@ -10,10 +10,10 @@ jobs:
     # uses: bambamboole/gha-upmerge@de87b212278009f9ace0ba024701890b9eb3281b
     # Automatically up merge changes from one branch to another
     steps:
-      uses: bambamboole/gha-upmerge@v1.0.1
-      with:
-        from_branch: develop
-        to_branch: main
-        # user_name: # optional, default is GitHub Upmerge Action
-        # user_email: # optional, default is actions@github.com
-        push_token: ${{secrets.SECRET_TOKEN}}
+      - uses: bambamboole/gha-upmerge@v1.0.1
+        with:
+          from_branch: develop
+          to_branch: main
+          # user_name: # optional, default is GitHub Upmerge Action
+          # user_email: # optional, default is actions@github.com
+          push_token: ${{secrets.SECRET_TOKEN}}
