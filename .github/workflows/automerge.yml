@@ -14,6 +14,6 @@ jobs:
         with:
           from_branch: develop
           to_branch: main
-          # user_name: # optional, default is GitHub Upmerge Action
-          # user_email: # optional, default is actions@github.com
+          user_name: roujiawang
+          user_email: rjwang@umich.edu
           push_token: ${{secrets.SECRET_TOKEN}}
