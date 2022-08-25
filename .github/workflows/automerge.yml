@@ -5,7 +5,7 @@ env:
   PUSH_TOKEN: ${{secrets.SECRET_TOKEN}}
 on:
   push:
-    branch:
+    branches:
       - develop
 jobs:
   merge-dev-to-main:
