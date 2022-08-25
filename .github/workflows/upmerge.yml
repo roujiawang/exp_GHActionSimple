@@ -1,0 +1,25 @@
+name: 'Up merge'
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  nightly-merge:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Up Merge
+      uses: bambamboole/gha-upmerge@v1.0.1
+      with:
+        to_branch: 'main'
+        from_branch: 'develop'
+        user_name: roujiawang
+        user_email: rjwang@umich.edu
+      env:
+        GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
