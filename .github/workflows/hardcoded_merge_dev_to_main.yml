@@ -18,7 +18,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          ref: "main"
+          ref: "develop"
       
       - name: merge branch dev to main
         run: |
