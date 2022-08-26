@@ -15,8 +15,9 @@ jobs:
       USER_EMAIL: ${{secrets.USER_EMAIL}}
       GITHUB_TOKEN: ${{secrets.SECRET_TOKEN}}
     steps:
+      - name: checkout
+      - uses: actions/checkout@v2
       - name: merge branch dev to main
         run: |
-          git fetch origin develop:main --unshallow
-          git checkout origin/main
+          git fetch origin develop --unshallow
           git merge origin/develop -m "merged origin develop into main"
