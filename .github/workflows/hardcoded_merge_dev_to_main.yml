@@ -26,8 +26,9 @@ jobs:
           git config --global user.name "$USER_EMAIL"
           git config pull.rebase true # trigger rebase, not merge
           git fetch origin main --unshallow
+          
           git checkout -b local_main
-          git pull --set-upstream origin main
+          git pull -X theirs --set-upstream origin main
           git merge develop -X theirs -m "merged origin develop into main"
           git push origin HEAD:main
           git branch --unset-upstream
