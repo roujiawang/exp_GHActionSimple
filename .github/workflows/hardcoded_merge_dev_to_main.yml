@@ -32,4 +32,5 @@ jobs:
           git merge develop -X theirs -m "merged origin develop into main"
           git push origin HEAD:main
           git branch --unset-upstream
+          git checkout main
           git branch -D local_main
