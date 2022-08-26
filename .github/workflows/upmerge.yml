@@ -19,7 +19,9 @@ jobs:
       with:
         to_branch: 'main'
         from_branch: 'develop'
-        user_name: roujiawang
-        user_email: rjwang@umich.edu
+        user_name: $USER_NAME
+        user_email: $USER_EMAIL
       env:
         GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
+        USER_NAME: ${{secrets.USER_NAME}}
+        USER_EMAIL: ${{secrets.USER_EMAIL}}
