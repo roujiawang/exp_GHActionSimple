@@ -24,4 +24,4 @@ jobs:
         run: |
           git fetch origin develop --unshallow
           git checkout main
-          git merge develop -m "merged origin develop into main"
+          git merge origin/develop -m "merged origin develop into main"
