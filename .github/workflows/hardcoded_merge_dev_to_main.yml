@@ -24,13 +24,16 @@ jobs:
         run: |
           git config --global user.email "$USER_NAME"
           git config --global user.name "$USER_EMAIL"
-          git config pull.rebase true # trigger rebase, not merge
+          git config pull.rebase true # so that git pull triggers rebase, not merge
           git fetch origin main --unshallow
           
+          # use a temp local branch to conduct merge
           git checkout -b local_main
           git pull -X theirs --set-upstream origin main
           git merge develop -X theirs -m "merged origin develop into main"
           git push origin HEAD:main
+          
+          # timely delete this temp local branch 
           git branch --unset-upstream
           git checkout main
           git branch -D local_main
