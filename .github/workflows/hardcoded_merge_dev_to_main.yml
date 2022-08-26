@@ -17,6 +17,5 @@ jobs:
     steps:
       - name: merge branch dev to main
         run: |
-          git fetch origin develop:main --unshallow
-          git checkout origin/main
+          git fetch origin main --unshallow
           git merge origin/develop -m "merged origin develop into main"
