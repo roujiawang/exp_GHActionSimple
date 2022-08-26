@@ -24,6 +24,6 @@ jobs:
         run: |
           git config --global user.email "$USER_NAME"
           git config --global user.name "$USER_EMAIL"
-          git fetch origin --all --unshallow
+          git fetch origin main --unshallow
           git checkout origin/main
           git merge origin/develop -X theirs -m "merged origin develop into main"
