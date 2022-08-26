@@ -1,1 +1,22 @@
-
+name: Hardcoded Merge Branch develop to main
+on:
+  push:
+    branches:
+      - develop
+permissions:
+  contents: write
+  issues: write
+jobs:
+  merge-branch-dev-to-main:
+    name: merge the develop branch into main
+    runs-on: ubuntu-latest
+    env:
+      USER_NAME: ${{secrets.USER_NAME}}
+      USER_EMAIL: ${{secrets.USER_EMAIL}}
+      GITHUB_TOKEN: ${{secrets.SECRET_TOKEN}}
+    steps:
+      - name: merge branch dev to main
+        run: |
+          git fetch origin --unshallow
+          git checkout origin/main
+          git merge origin/develop -m "merged origin develop into main"
