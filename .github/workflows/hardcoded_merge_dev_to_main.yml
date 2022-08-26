@@ -15,13 +15,17 @@ jobs:
       USER_EMAIL: ${{secrets.USER_EMAIL}}
       GITHUB_TOKEN: ${{secrets.SECRET_TOKEN}}
     steps:
-      
+      # this step is to avoid error: "not in a git directory"
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: "develop"
       
       - name: merge branch dev to main
         run: |
           git config --global user.email "$USER_NAME"
           git config --global user.name "$USER_EMAIL"
-          git config pull.rebase true # so that git pull triggers rebase, not merge
+          # git config pull.rebase true # so that git pull triggers rebase, not merge
           git fetch origin main --unshallow
           
           # use a temp local branch to conduct merge
