@@ -25,10 +25,15 @@ jobs:
         run: |
           git config --global user.email "$USER_NAME"
           git config --global user.name "$USER_EMAIL"
-          # git config pull.rebase true # so that git pull triggers rebase, not merge
-          git fetch origin main --unshallow
+          git fetch origin main --unshallow # to edit it without limitations of shallow repo
+          
+          # configured to avoid error: "Need to specify how to reconcile divergent branches."
+          # WARNING: may risk losing important edit history
+          git config pull.rebase true # so that git pull triggers rebase, not merge
           
           # use a temp local branch to conduct merge
+          # when git pull, settle conflicts in favor or main
+          # when merge and push, settle conflicts in favor of dev
           git checkout -b local_main
           git pull -X theirs --set-upstream origin main
           git merge develop -X theirs -m "merged origin develop into main"
