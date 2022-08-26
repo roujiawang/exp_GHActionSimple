@@ -23,4 +23,4 @@ jobs:
       - name: merge branch dev to main
         run: |
           git fetch origin --all --unshallow
-          git merge origin/develop -m "merged origin develop into main"
+          git merge develop -m "merged origin develop into main"
