@@ -18,12 +18,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          ref: "main"
+          ref: "develop"
       
       - name: merge branch dev to main
         run: |
           git config --global user.email "$USER_NAME"
           git config --global user.name "$USER_EMAIL"
+          git config pull.rebase true # trigger rebase, not merge
           git fetch origin main --unshallow
           git checkout -b local_main
           git pull --set-upstream origin main
